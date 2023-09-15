@@ -183,4 +183,20 @@ public class MyLinkedList<E> implements ListInterface<E> {
 		}
 		return false;
 	}
+
+	public int evencountnumber() {
+		int count = 0;
+		Node<E> temp = head;
+		while (temp != null) {
+
+			if (temp.getData() instanceof Integer) {
+				int value = (Integer) temp.getData();
+				if (value % 2 == 1) {
+					count++;
+				}
+			}
+			temp = temp.getNext();
+		}
+		return count;
+	}
 }

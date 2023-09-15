@@ -10,9 +10,12 @@ public class EX3 {
 		myLinkedList.addFirst(10);
 		myLinkedList.addFirst(11);
 		myLinkedList.addFirst(56);
+		myLinkedList.addLast(13);
 		myLinkedList.print();
 
 		System.out.println(myLinkedList.evencountnumber());
+
+		System.out.println(myLinkedList.primecountnumber());
 
 	}
 }

@@ -199,4 +199,42 @@ public class MyLinkedList<E> implements ListInterface<E> {
 		}
 		return count;
 	}
+
+	public int primecountnumber() {
+		int count = 0;
+		Node<E> temp = head;
+		while (temp != null) {
+
+			if (temp.getData() instanceof Integer) {
+				int value = (Integer) temp.getData();
+
+				if(checkprime(value)) {
+					count ++;
+				}
+			}
+			temp = temp.getNext();
+		}
+		return count;
+	}
+	
+	public boolean checkprime(int number) {
+		if (number <= 1) {
+			return false;
+		}
+		
+		if (number <= 3) {
+			return true;
+		}
+		
+		if (number % 2 == 0 || number % 3 == 0) {
+			return false;
+		}
+		
+		for (int i = 5; i * i <= number; i += 6) {
+			if (number % i == 0 || number % (i + 2) == 0) {
+				return false;
+			}
+		}
+		return true;
+	}
 }

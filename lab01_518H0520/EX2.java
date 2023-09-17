@@ -7,6 +7,7 @@ public class EX2 {
 		list.addFirst(11);
 		list.addFirst(7);
 		list.addFirst(12);
+		list.addFirst(13);
 		list.print();
 
 		System.out.println(list.findNodeWithData(12));
@@ -16,5 +17,10 @@ public class EX2 {
 
 		list.removeCurr(list.findNodeWithData(11));
 		list.print();
+
+		list.addbeforeFirstEven(54);
+		list.print();
+
+		System.out.println(list.findmaxnumber());
 	}
 }

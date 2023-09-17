@@ -19,4 +19,9 @@ public interface ListInterface<E> {
 	public int size();
 	public boolean contains(E item);
 	public E removeCurr(Node<E> curr);
+
+	public int evencountnumber();
+	public int primecountnumber();
+	public void addbeforeFirstEven(E item)  throws NoSuchElementException;
+	public int findmaxnumber();
 }

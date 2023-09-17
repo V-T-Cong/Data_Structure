@@ -1,4 +1,4 @@
-import java.util.NoSuchElementException;
+	import java.util.NoSuchElementException;
 
 public class MyLinkedList<E> implements ListInterface<E> {
 	private Node<E> head;
@@ -94,9 +94,7 @@ public class MyLinkedList<E> implements ListInterface<E> {
 		if (head == null) {
 			throw new NoSuchElementException("Cannot remove from an empty linked list");
 		}
-	
 		if (head == curr) {
-			// If the current node is the head, update the head to the next node
 			head = head.getNext();
 			return curr.getData();
 		}
@@ -113,8 +111,6 @@ public class MyLinkedList<E> implements ListInterface<E> {
 			prevNode = delNode;
 			delNode = delNode.getNext();
 		}
-	
-		// If we reach here, the current node was not found in the linked list
 		throw new NoSuchElementException("Current node not found in the linked list");
 	}
 	
@@ -184,6 +180,7 @@ public class MyLinkedList<E> implements ListInterface<E> {
 		return false;
 	}
 
+	@Override
 	public int evencountnumber() {
 		int count = 0;
 		Node<E> temp = head;
@@ -200,6 +197,7 @@ public class MyLinkedList<E> implements ListInterface<E> {
 		return count;
 	}
 
+	@Override
 	public int primecountnumber() {
 		int count = 0;
 		Node<E> temp = head;
@@ -236,5 +234,61 @@ public class MyLinkedList<E> implements ListInterface<E> {
 			}
 		}
 		return true;
+	}
+
+	@Override
+	public void addbeforeFirstEven(E item)  throws NoSuchElementException {
+		if (head == null) {
+			throw new NoSuchElementException("List is empty");
+		}
+	
+		// If the first node is even, or there are no even numbers, add at the beginning.
+		if (((Integer) head.getData()) % 2 == 0 || !containsEven()) {
+			addFirst(item);
+			return;
+		}
+	
+		Node<E> prevNode = head;
+		Node<E> currNode = head.getNext();
+	
+		while (currNode != null) {
+			if (((Integer) currNode.getData()) % 2 == 0) {
+				Node<E> newNode = new Node<>(item, currNode);
+				prevNode.setNext(newNode);
+				numNode++;
+				return;
+			}
+			prevNode = currNode;
+			currNode = currNode.getNext();
+		}
+	}
+	
+	// Helper method to check if the linked list contains even numbers.
+	private boolean containsEven() {
+		Node<E> current = head;
+		while (current != null) {
+			if (((Integer) current.getData()) % 2 == 0) {
+				return true;
+			}
+			current = current.getNext();
+		}
+		return false;
+	}
+
+	@Override
+	public int findmaxnumber() {
+		if (head == null) {
+			throw new NoSuchElementException("List is empty");
+		}
+
+		Node<E> tmp = head;
+		int max = (Integer)tmp.getData();
+		while (tmp != null) {
+			if ((Integer)tmp.getData() > max) {
+				max = (Integer)tmp.getData();
+			}
+			tmp = tmp.getNext();
+		}
+		return max;
 	}
 }

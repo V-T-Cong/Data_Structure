@@ -291,4 +291,22 @@ public class MyLinkedList<E> implements ListInterface<E> {
 		}
 		return max;
 	}
+
+	public void reversethelist() throws NoSuchElementException {
+		if (head == null || head.getNext() == null) {
+			throw new NoSuchElementException("Can't reverse list");
+		}
+
+		Node<E> prevNode = null;
+		Node<E> current = head;
+		Node<E> nextNode = null;
+
+		while (current != null) {
+			nextNode = current.getNext();
+			current.setNext(prevNode);
+			prevNode = current;
+			current = nextNode;
+		}
+		head = prevNode;
+	}
 }

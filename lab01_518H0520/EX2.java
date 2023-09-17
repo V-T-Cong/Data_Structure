@@ -22,5 +22,7 @@ public class EX2 {
 		list.print();
 
 		System.out.println(list.findmaxnumber());
+		list.reversethelist();
+		list.print();
 	}
 }

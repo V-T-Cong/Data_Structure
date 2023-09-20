@@ -1,10 +1,14 @@
+import java.util.NoSuchElementException;
+
 public class MyDoubleLinkedList {
 	private DoubleNode head;
     private DoubleNode tail;
+    private int NumNode;
 
     public MyDoubleLinkedList() {
         head = null;
         tail = null;
+        NumNode = 0;
     }
 
     // Add a node to the end of the list
@@ -65,5 +69,36 @@ public class MyDoubleLinkedList {
             current = current.getNext();
         }
         System.out.println("null");
+    }
+
+    public DoubleNode getHead() {
+        return this.head;
+    }
+
+    public double getFirst() throws NoSuchElementException {
+        if (this.head == null) {
+            throw new NoSuchElementException("Can't get element from"
+                    + " an empty list");
+        } else {
+            return this.head.getData();
+        }
+    }
+
+    public boolean contains(double data) {
+        DoubleNode currentNode = this.head;
+
+        while (currentNode != null) {
+            if (currentNode.getData() == data) {
+                return true;
+            }
+
+            currentNode = currentNode.getNext();
+        }
+
+        return false;
+    }
+
+    public int size() {
+        return this.NumNode;
     }
 }

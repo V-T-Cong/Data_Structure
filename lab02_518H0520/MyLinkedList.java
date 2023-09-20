@@ -279,6 +279,7 @@ public class MyLinkedList<E> implements ListInterface<E> {
 		if (head == null) {
 			throw new NoSuchElementException("List is empty");
 		}
+
 		Node<E> tmp = head;
 		int max = (Integer)tmp.getData();
 		while (tmp != null) {

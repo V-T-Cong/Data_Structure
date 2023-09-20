@@ -1,4 +1,4 @@
-public class Ex5 {
+public class Ex05 {
 
 	public static boolean isBalanced(String seq) {
 		MyStack<Character> stack = new MyStack<>();

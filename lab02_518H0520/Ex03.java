@@ -1,4 +1,4 @@
-public class Ex3 {
+public class Ex03 {
 
 	public static int function(int n) {
 		MyStack<Integer> stack = new MyStack<>();
